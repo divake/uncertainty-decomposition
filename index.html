@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Aleatoric-Epistemic Uncertainty Decomposition for Principled Corrective Control and Adaptive Model Selection in Robotics.">
+  <meta name="keywords" content="Uncertainty Decomposition, Aleatoric, Epistemic, Robotic Manipulation, Visual Tracking, Conformal Prediction">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uncertainty Decomposition for Corrective Control and Adaptive Model Selection</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://github.com/divake">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://divake.github.io/learnable-cp-robotics/">
+            Learnable CP for Robotics
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Hero / Title Section -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Aleatoric-Epistemic Uncertainty Decomposition for Principled Corrective Control and Adaptive Model Selection</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/divake">Divake Kumar</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="#">Sina Tayebati</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="#">Ranganath Krishnan</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="#">Amit Ranjan Trivedi</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Illinois at Chicago,</span>
+            <span class="author-block"><sup>2</sup>Intel Labs</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- arXiv Link (Coming Soon) -->
+              <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark coming-soon-btn"
+                   disabled>
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (Coming Soon)</span>
+                </a>
+              </span>
+              <!-- Code Link (Coming Soon) -->
+              <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark coming-soon-btn"
+                   disabled>
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                </a>
+              </span>
+              <!-- Video Link -->
+              <span class="link-block">
+                <a href="#demo-videos"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Videos</span>
+                </a>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser Figure -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/figures/Figure_01.png" alt="Overview of uncertainty decomposition framework" style="width: 100%; border-radius: 10px;">
+      <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+        Our framework decomposes uncertainty into <b>aleatoric</b> (sensor noise) and <b>epistemic</b> (dynamics mismatch) components,
+        enabling type-specific corrective responses for both robotic control and adaptive visual perception.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- Key Metrics -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="key-metrics">
+      <div class="columns is-centered">
+        <div class="column is-3">
+          <div class="metric-card">
+            <div class="metric-value">+21.0%</div>
+            <div class="metric-label">Improvement over combined uncertainty under compound perturbations</div>
+          </div>
+        </div>
+        <div class="column is-3">
+          <div class="metric-card">
+            <div class="metric-value">80.4%</div>
+            <div class="metric-label">Task success rate under compound perturbations (vs. 44.6% vanilla)</div>
+          </div>
+        </div>
+        <div class="column is-3">
+          <div class="metric-card">
+            <div class="metric-value">58.2%</div>
+            <div class="metric-label">Compute savings in adaptive tracking with negligible accuracy loss</div>
+          </div>
+        </div>
+        <div class="column is-3">
+          <div class="metric-card">
+            <div class="metric-value">r = 0.048</div>
+            <div class="metric-label">Near-zero correlation confirming orthogonality of uncertainty signals</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Most uncertainty-aware robotic systems collapse prediction uncertainty into a single scalar score and use it to trigger uniform corrective responses. This aggregation obscures whether uncertainty arises from corrupted observations or from mismatch between the learned model and the true system dynamics. As a result, corrective actions may be applied to the wrong component of the closed loop, degrading performance relative to leaving the policy unchanged.
+          </p>
+          <p>
+            We introduce a lightweight <i>post hoc</i> framework that decomposes uncertainty into <b>aleatoric</b> and <b>epistemic</b> components and uses these signals to regulate system responses at inference time. Aleatoric uncertainty is estimated from deviations in the observation distribution using a Mahalanobis density model, while epistemic uncertainty is detected using a noise-robust forward dynamics ensemble that isolates model mismatch from measurement corruption. The two signals remain empirically near-orthogonal during closed-loop execution and enable type-specific responses: high aleatoric uncertainty triggers observation recovery, while high epistemic uncertainty moderates control actions. The same signals also regulate adaptive perception by guiding model capacity selection during tracking inference.
+          </p>
+          <p>
+            Experiments demonstrate consistent improvements across both control and perception tasks. In robotic manipulation, the decomposed controller improves task success from 59.4% to 80.4% under compound perturbations and outperforms a combined uncertainty baseline by up to 21.0%. In adaptive tracking inference on MOT17, uncertainty-guided model selection reduces average compute by 58.2% relative to a fixed high-capacity detector while preserving detection quality within 0.4%.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Method Overview -->
+<section class="section" style="background-color: #fafafa;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Method</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Our framework operates as a <b>post-hoc</b> module that requires no retraining of the base policy. It decomposes uncertainty into two physically distinct components:
+          </p>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="box">
+              <h4 class="title is-5" style="color: #3273dc;">Aleatoric Uncertainty (Sensor Noise)</h4>
+              <p>Estimated via <b>Mahalanobis distance</b> in observation space. Measures deviation from the nominal state distribution. When triggered, applies <b>observation recovery</b> by resampling the sensor (N=5 resamples, averaging).</p>
+              <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #888;"><i>Examples: encoder noise, calibration drift, occlusion, blur</i></p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box">
+              <h4 class="title is-5" style="color: #ff3860;">Epistemic Uncertainty (Dynamics Mismatch)</h4>
+              <p>Detected using a <b>noise-robust forward dynamics ensemble</b> (K=5 MLPs) trained with noise-augmented data paired with clean targets. When triggered, applies <b>action dampening</b> (scaling factor &alpha;=0.30).</p>
+              <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #888;"><i>Examples: mass change, friction variation, actuator drift, viewpoint shift</i></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content has-text-justified">
+          <p>
+            A key property is <b>empirical orthogonality</b>: the two signals maintain near-zero correlation (r=0.048 across 21,324 MOT17 detections), confirming they capture distinct disturbance mechanisms. This enables independent, type-specific interventions without cross-contamination.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Results: Robotic Manipulation -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Results: Robotic Manipulation</h2>
+        <p class="has-text-centered" style="margin-bottom: 1.5rem;">
+          Task success rate (%) on <b>Isaac-Lift-Cube-Franka</b> (N=1,000 episodes per condition). The Franka Emika Panda 7-DOF arm must reach, grasp, and lift a cube to a target height.
+        </p>
+
+        <div style="overflow-x: auto;">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Nominal</th>
+                <th>Sensor Noise</th>
+                <th>Dynamics Shift</th>
+                <th>Compound</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Vanilla (no intervention)</td>
+                <td>100.0</td>
+                <td>63.8</td>
+                <td>72.4</td>
+                <td>44.6</td>
+              </tr>
+              <tr>
+                <td>Observation Recovery Only</td>
+                <td>97.4</td>
+                <td>89.2</td>
+                <td>64.8</td>
+                <td>57.3</td>
+              </tr>
+              <tr>
+                <td>Action Dampen Only</td>
+                <td>88.6</td>
+                <td>58.4</td>
+                <td>78.3</td>
+                <td>50.2</td>
+              </tr>
+              <tr>
+                <td>Total-U (combined scalar)</td>
+                <td>96.8</td>
+                <td>80.6</td>
+                <td>70.1</td>
+                <td>59.4</td>
+              </tr>
+              <tr class="ours-row">
+                <td>Decomposed (Ours)</td>
+                <td class="best">99.6</td>
+                <td class="best">94.2</td>
+                <td class="best">84.2</td>
+                <td class="best">80.4</td>
+              </tr>
+              <tr class="delta-row">
+                <td>&Delta; vs. Total-U</td>
+                <td>+2.8</td>
+                <td>+13.6</td>
+                <td>+14.1</td>
+                <td>+21.0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="figure-caption">
+          Total-U fails below vanilla under pure dynamics shift (70.1% vs. 72.4%) because it incorrectly applies observation recovery to clean sensor readings. Our decomposed approach avoids this cross-contamination.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Trigger Rate and Trajectory -->
+<section class="section" style="background-color: #fafafa;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Uncertainty Trigger Behavior</h2>
+
+        <div class="has-text-centered">
+          <img src="./static/images/figures/fig_trig_traj.png" alt="Trigger rates and cube height trajectory" style="max-width: 100%; border-radius: 8px;">
+        </div>
+
+        <p class="figure-caption">
+          <b>(a)</b> Aleatoric and epistemic trigger rates under four perturbation conditions. The aleatoric signal fires on 85.2% of steps under sensor perturbation while the epistemic signal fires on only 12.4% under dynamics shift &mdash; confirming near-independence.
+          <b>(b)</b> Object height in a representative compound episode: Vanilla and Total-U fail to lift the cube above the 0.2 m success threshold, while Decomposed succeeds.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Results: Visual Tracking -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Results: Adaptive Visual Tracking</h2>
+        <p class="has-text-centered" style="margin-bottom: 1.5rem;">
+          Uncertainty-guided adaptive model selection across YOLOv8 variants (Nano 3.2M to XLarge 68.2M params) on <b>MOT17</b> (7 sequences, 4,746 frames).
+        </p>
+
+        <div style="overflow-x: auto;">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Sequence</th>
+                <th>Frames</th>
+                <th>Nano (%)</th>
+                <th>Small (%)</th>
+                <th>Medium (%)</th>
+                <th>Large (%)</th>
+                <th>XLarge (%)</th>
+                <th>Switches</th>
+                <th>Savings (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MOT17-02</td><td>550</td><td>18.2</td><td>7.3</td><td>35.3</td><td>32.0</td><td>7.2</td><td>12</td><td>58.3</td>
+              </tr>
+              <tr>
+                <td>MOT17-04</td><td>1050</td><td>25.2</td><td>4.3</td><td>28.1</td><td>34.7</td><td>7.7</td><td>18</td><td>57.5</td>
+              </tr>
+              <tr>
+                <td>MOT17-05</td><td>750</td><td>27.0</td><td>8.0</td><td>29.9</td><td>28.1</td><td>7.0</td><td>15</td><td>59.5</td>
+              </tr>
+              <tr>
+                <td>MOT17-09</td><td>450</td><td>26.8</td><td>7.1</td><td>29.7</td><td>32.4</td><td>4.0</td><td>14</td><td>60.2</td>
+              </tr>
+              <tr>
+                <td>MOT17-10</td><td>593</td><td>20.6</td><td>15.5</td><td>25.3</td><td>25.3</td><td>13.3</td><td>18</td><td>57.4</td>
+              </tr>
+              <tr>
+                <td>MOT17-11</td><td>867</td><td>24.7</td><td>6.9</td><td>27.8</td><td>27.0</td><td>13.6</td><td>19</td><td>56.2</td>
+              </tr>
+              <tr>
+                <td>MOT17-13</td><td>675</td><td>23.4</td><td>8.5</td><td>31.2</td><td>29.3</td><td>7.6</td><td>16</td><td>58.6</td>
+              </tr>
+              <tr class="ours-row">
+                <td><b>Average</b></td><td>4,746</td><td>23.7</td><td>8.2</td><td>29.6</td><td>29.8</td><td>8.6</td><td>16</td><td class="best">58.2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="figure-caption">
+          The policy uses XLarge (the most expensive model) only 8.6% of the time, achieving 58.2% average compute savings while maintaining detection quality within 0.4% IoU of the fixed XLarge baseline.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Model Hopping Visualization -->
+<section class="section" style="background-color: #fafafa;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Adaptive Model Selection Visualization</h2>
+
+        <div class="has-text-centered">
+          <img src="./static/images/figures/model_hopping.png" alt="Adaptive model hopping on MOT17-04" style="max-width: 100%; border-radius: 8px;">
+        </div>
+
+        <p class="figure-caption">
+          Adaptive model selection for MOT17-04. <b>Top:</b> Temporal uncertainty evolution (epistemic in red, aleatoric in blue).
+          <b>Bottom:</b> Selected YOLO models color-coded by capacity. The policy correlates model scaling with epistemic spikes while ignoring aleatoric elevation, validating orthogonality-aware learning.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Orthogonality Evidence -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Orthogonality Evidence</h2>
+
+        <div class="columns is-centered" style="margin-top: 1rem;">
+          <div class="column is-half has-text-centered">
+            <img src="./static/images/figures/plot1_scatter_main.png" alt="Joint distribution of aleatoric and epistemic uncertainty" style="max-width: 100%; border-radius: 8px;">
+            <p class="figure-caption">
+              Joint distribution across 21,324 MOT17 detections showing near-zero correlation (r=0.048), confirming the two uncertainties capture distinct mechanisms.
+            </p>
+          </div>
+          <div class="column is-half has-text-centered">
+            <img src="./static/images/figures/plot5_correlation_heatmap.png" alt="Per-sequence correlation heatmap" style="max-width: 100%; border-radius: 8px;">
+            <p class="figure-caption">
+              Per-sequence correlation heatmap on MOT17. Orthogonality between aleatoric and epistemic signals holds consistently across all sequences (r &le; 0.05).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Ablation -->
+<section class="section" style="background-color: #fafafa;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Ablation Study</h2>
+
+        <div class="has-text-centered">
+          <img src="./static/images/figures/ablation_barplot.png" alt="Ablation study comparing decomposed vs total uncertainty" style="max-width: 65%; border-radius: 8px;">
+        </div>
+
+        <p class="figure-caption">
+          Our orthogonal decomposition achieves <b>58.2%</b> average computational savings vs. <b>44.6%</b> for total uncertainty (+13.6% improvement).
+          Total uncertainty conservatively uses larger models when combined uncertainty is high, while our method recognizes that high aleatoric uncertainty alone does not require increased model capacity.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Demo Videos -->
+<section class="section" id="demo-videos">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Demo Videos</h2>
+      </div>
+    </div>
+
+    <div class="columns is-centered video-section">
+      <div class="column">
+        <h3 class="title is-4 has-text-centered">Robotic Manipulation (Isaac Lab)</h3>
+        <p class="has-text-centered" style="margin-bottom: 1rem; font-size: 0.95rem; color: #555;">
+          Franka Emika Panda performing lift-cube task under compound perturbations. The decomposed controller successfully completes the grasp-and-lift despite simultaneous sensor noise and dynamics shift.
+        </p>
+        <video controls muted loop playsinline width="100%">
+          <source src="./static/videos/Isaac_lift_cube_franka.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="column">
+        <h3 class="title is-4 has-text-centered">Physical Robot + Vision Pipeline</h3>
+        <p class="has-text-centered" style="margin-bottom: 1rem; font-size: 0.95rem; color: #555;">
+          Agilex MiniScout mobile robot with Intel NUC edge platform running adaptive uncertainty-guided model selection for real-time computer vision tasks.
+        </p>
+        <video controls muted loop playsinline width="100%">
+          <source src="./static/videos/Agilex_robo_CV_Task.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- BibTeX -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{kumar2025uncertainty,
+  author    = {Kumar, Divake and Tayebati, Sina and Krishnan, Ranganath and Trivedi, Amit Ranjan},
+  title     = {Aleatoric-Epistemic Uncertainty Decomposition for Principled Corrective Control and Adaptive Model Selection},
+  year      = {2025},
+  note      = {arXiv preprint coming soon}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website template adapted from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
