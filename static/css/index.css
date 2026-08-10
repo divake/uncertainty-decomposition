@@ -2,6 +2,19 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.iros-acceptance-banner {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #8b0000;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 15px 30px;
+  margin-top: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  text-align: center;
+}
+
 .footer .icon-link {
     font-size: 25px;
     color: #000;
